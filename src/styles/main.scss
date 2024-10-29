@@ -1,0 +1,351 @@
+@use "variables";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: bold;
+  background-color: variables.$accent-primary;
+  color: variables.$text-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: variables.$h1-font-size;
+}
+
+.card {
+  display: flex;
+  width: 656px;
+  height: 124px;
+  background-color: #fff;
+  border-radius: 8px;
+
+  &__img {
+    width: 165px;
+    height: 124px;
+    background-color: #E4EAF0;
+    border-radius: 8px 0 0 8px;
+  }
+
+  &__info {
+    width: 100%;
+  }
+
+  &__info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info-down {
+    display: flex;
+    justify-content: space-between;
+    margin: 11px 12px 12px 16px;
+  }
+
+  &__info-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000;
+    margin: 0 0 0 15px;
+
+    &:hover {
+      color: #0070F0;
+      transition: all linear .5s;
+    }
+  }
+
+  &__info-characteristic {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    color: #A2A0A0;
+  }
+
+  &__info-quantity {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #A2A0A0;
+    margin-top: -4px;
+  }
+
+  &__info-price {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000;
+    margin-top: -4px;
+  }
+
+  &__year {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #A2A0A0;
+  }
+
+  &__info-discount {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 10px;
+    padding: 2px 8px;
+    color: #006908;
+    background-color: #D7F7C2;
+    border-radius: 4px;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &__content {
+    max-width: 600px;
+    height: 493px;
+    margin: 100px auto;
+    background-color: #fff;
+    border: 1px solid #888;
+    border-radius: 12px;
+  }
+
+  &__img {
+    display: block;
+    width: 170px;
+    height: 190px;
+    margin: 52px auto;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+    color: #000;
+    margin-top: -30px;
+  }
+
+  &__text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: #A2A0A0;
+    margin-top: -10px;
+  }
+}
+
+.close {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: 32px;
+  margin-right: 32px;
+  float: right;
+  border-radius: 5px;
+  cursor: pointer;
+  --weight: 0.3px;
+  --aa: 1px;
+  --color: #E1E0E0;
+  background:
+    linear-gradient(45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa))),
+    linear-gradient(-45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa)));
+}
+
+.button-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 240px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 48px auto;
+  background-color: #0070F0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 475px) {
+  .card {
+    flex-direction: column;
+    width: 420px;
+    height: 335px;
+
+    &__img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    &__info-title {
+      font-size: 16px;
+    }
+
+    &__info-top {
+      margin-top: -2px;
+    }
+
+    &__info-down {
+      margin-top: -6px;
+    }
+
+    &__year {
+      font-size: 18px;
+    }
+
+    &__info-characteristic {
+      font-size: 10px;
+    }
+
+    &__info-quantity {
+      font-size: 14px;
+      margin-top: -7px;
+    }
+
+    &__info-price {
+      font-size: 14px;
+      margin-top: -7px;
+    }
+
+    &__info-discount {
+      font-size: 10px;
+    }
+  }
+
+  .modal {
+    &__content {
+      height: 430px;
+      margin: 100px 10px;
+      padding: 0 10px;
+    }
+
+    &__img {
+      width: 150px;
+      height: 166px;
+      margin-top: 40px;
+    }
+
+    &__title {
+      max-width: 415px;
+      font-size: 22px;
+      margin: -30px auto 0;
+    }
+
+    &__text {
+      max-width: 415px;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 10px auto 0;
+    }
+  }
+
+  .close {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .button-close {
+    max-width: 415px;
+    margin-top: 35px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .card {
+    flex-direction: column;
+    width: 320px;
+    height: 322px;
+
+    &__info-title {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    &__year {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    &__info-discount {
+      font-size: 10px;
+    }
+
+    &__info-top {
+      margin-top: -3px;
+    }
+
+    &__info-characteristic {
+      font-size: 8px;
+    }
+
+    &__info-quantity {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    &__info-price {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: -6px;
+    }
+
+    &__info-down {
+      margin-top: -7px;
+    }
+
+    &__info-quantity {
+      margin-top: -6px;
+    }
+  }
+
+  .modal {
+    &__content {
+      height: 480px;
+      margin: 100px 10px;
+      padding: 0 30px;
+    }
+
+    &__img {
+      width: 130px;
+      height: 146px;
+      margin-top: 40px;
+    }
+
+    &__title {
+      max-width: 288px;
+      margin: -30px auto 0;
+    }
+
+    &__text {
+      max-width: 288px;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 10px auto 0;
+    }
+  }
+
+  .button-close {
+    max-width: 288px;
+  }
+
+  .close {
+    margin-right: -10px;
+  }
+}
